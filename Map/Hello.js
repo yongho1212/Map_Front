@@ -5,13 +5,14 @@ import { TopBar, BottomSheet, CustomMarker   } from '../Components';
 import { MARKERS_DATA } from '../data/markers';
 import { useMap } from './useMap';
 import mapStyle from './mapstyle';
-
+// hi
 export function Hello() {
   const {
     mapRef,
     selectedMarker,
     handleNavigateToPoint,
     handelResetInitialPosition,
+
   } = useMap();
 
 
