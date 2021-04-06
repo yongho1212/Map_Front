@@ -11,6 +11,7 @@ import {
   StatusBar,
 } from 'react-native';
 
+
 import Hello from './Map/Hello';
 //import MyPage from './Screens/MyPage/index';
 // import LocationSearch from './Screens/LocationSearch';

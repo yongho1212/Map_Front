@@ -4,7 +4,7 @@ import ScrollBottomSheet from 'react-native-scroll-bottom-sheet';
 import { MARKERS_DATA } from '../../data/markers';
 import { ListItem } from './ListItem';
 
-import LocationSearch from '../LocationSearch'
+import LocationSearch from '../LocationSearch/index';
 
 const windowHeight = Dimensions.get('window').height;
 
@@ -13,13 +13,14 @@ export function BottomSheet({ onPressElement }) {
   return (
     <ScrollBottomSheet
       componentType="ScrollView"
-      snapPoints={[100, '50%', windowHeight - 200]}
+      snapPoints={[100, '90%', windowHeight - 200]}
       initialSnapIndex={1}
-      
       renderHandle={() => (
         <View style={styles.header}>
           <View style={styles.panelHandle} />
-          <LocationSearch/>
+          <LocationSearch
+          /*notifyChange={(loc) => this.getCoordsFromName(loc)}*/
+          />
         </View>
       )}
       

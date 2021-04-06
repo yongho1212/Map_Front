@@ -10,14 +10,17 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-community/geolocation": "^2.0.2",
     "react": "16.13.1",
     "react-native": "0.63.4",
+    "react-native-geocoding": "^0.5.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-google-places-autocomplete": "^2.2.0",
     "react-native-maps": "0.27.1",
     "react-native-reanimated": "file:react-native-reanimated-2.0.1.tgz",
     "react-native-redash": "^16.0.8",
-    "react-native-scroll-bottom-sheet": "^0.7.0"
+    "react-native-scroll-bottom-sheet": "^0.7.0",
+    "reanimated-bottom-sheet": "^1.0.0-alpha.22"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

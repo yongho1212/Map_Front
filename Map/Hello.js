@@ -1,51 +1,94 @@
-import React from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import { TopBar, BottomSheet, CustomMarker   } from '../Components';
-import { MARKERS_DATA } from '../data/markers';
-import { useMap } from './useMap';
-import mapStyle from './mapstyle';
+import React, {Component} from 'react';
+import { StyleSheet, View, Dimensions, Text } from 'react-native';
+
+import Animated from 'react-native-reanimated';
+import BottomSheet from 'reanimated-bottom-sheet';
+import LocationSearch from '../Components/LocationSearch';
+import MyMapView from './MapView';
+
+import {getLocation, geocodeLocationByName,geocodeLocationByCoords} from '../Service/service';
 // hi
-export function Hello() {
-  const {
-    mapRef,
-    selectedMarker,
-    handleNavigateToPoint,
-    handelResetInitialPosition,
+export default class Hello extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          region: {
+              latitude: 37.49784984651033,
+              longitude: 127.02764321415104,
+              latitudeDelta: 0.015,
+              longitudeDelta: 0.0121, 
+              address: 0,
+          }
+           
+      }
+  }
 
-  } = useMap();
+  componentDidMount() {
+    this.getInitialState();
+}
 
+getInitialState() {
+    getLocation().then(
+        (data) => {
+            console.log(data);
+            this.setState({
+                region: {
+                    latitude: data.latitude,
+                    longitude: data.longitude,
+                    latitudeDelta: 0.003,
+                    longitudeDelta: 0.003
+                }
+            });
+        }
+    );
+}
 
-    return (
-        <View style={styles.container}>
-          <TopBar onPressElement={handelResetInitialPosition} />
-          <MapView
-            customMapStyle={mapStyle}
-            provider={PROVIDER_GOOGLE}
-            style={styles.mapStyle}
-            initialRegion={{
-              latitude: 41.3995345,
-              longitude: 2.1909796,
-              latitudeDelta: 0.003,
-              longitudeDelta: 0.003,
-            }}
-            mapType="standard"
-          ></MapView>
-          <BottomSheet onPressElement={handleNavigateToPoint} />
-        </View>
-      );
-    }
-    
-    const styles = StyleSheet.create({
-      container: {
-        flex: 1,
-        backgroundColor: 'black',
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-      mapStyle: {
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-      },
-});
-export default Hello;
+  onMapRegionChange(region) {
+      this.setState({ region });
+  }
+
+  getCoords = (loc) => {
+      this.setState({
+          region: {
+              latitude: loc.lat,
+              longitude: loc.lng,
+              latitudeDelta: 0.015,
+              longitudeDelta: 0.0121, 
+          }
+      })
+  }
+
+  renderContent = () => (  
+      <View
+        style={{
+          flex: 0,
+          backgroundColor: '#fff',
+          padding: 16,
+          height: 200,
+        }}
+      >
+          <LocationSearch notifyChange={(loc) => this.getCoords(loc)}/>             
+      </View>
+  );
+
+  bs = React.createRef()
+
+  render() {
+      return (
+          <View style={{width: '100%', height: '100%'}}>
+              <MyMapView
+                  region={this.state.region}
+                  onRegionChangeComplete={(reg) => this.onMapRegionChange(reg)}                    
+              />                 
+              <BottomSheet
+              ref={this.bs}
+                  renderContent={this.renderContent}
+                  snapPoints={[200, 400]}
+                  borderRadius={10}
+                  
+       
+              />
+          </View>
+      )
+  }
+}
