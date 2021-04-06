@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, Dimensions, Text } from 'react-native';
+import { SafeAreaView, StyleSheet, View, Dimensions, Text, Button } from 'react-native';
 
 import Animated from 'react-native-reanimated';
 import BottomSheet from 'reanimated-bottom-sheet';
 import LocationSearch from '../Components/LocationSearch';
 import MyMapView from './MapView';
+import { ScrollView, FlatList } from 'react-native-gesture-handler';
+
+
 
 import {getLocation, geocodeLocationByName,geocodeLocationByCoords} from '../Service/service';
 // hi
@@ -64,31 +67,30 @@ getInitialState() {
           flex: 0,
           backgroundColor: '#fff',
           padding: 16,
-          height: 200,
+          height: 450,
         }}
       >
           <LocationSearch notifyChange={(loc) => this.getCoords(loc)}/>             
       </View>
   );
 
-  bs = React.createRef()
-
   render() {
       return (
-          <View style={{width: '100%', height: '100%'}}>
+          <SafeAreaView style={{width: '100%', height: '100%'}}>
               <MyMapView
                   region={this.state.region}
                   onRegionChangeComplete={(reg) => this.onMapRegionChange(reg)}                    
-              />                 
+              /> 
+              
               <BottomSheet
-              ref={this.bs}
                   renderContent={this.renderContent}
-                  snapPoints={[200, 400]}
+                  snapPoints={[200, 400, 5]}
                   borderRadius={10}
-                  
+                  enabledManualSnapping={true}
+     
        
               />
-          </View>
+          </SafeAreaView>
       )
   }
 }
