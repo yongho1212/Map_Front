@@ -1,5 +1,5 @@
-import Geocoder from 'react-native-geocoding';
 import Geolocation from '@react-native-community/geolocation';
+import Geocoder from 'react-native-geocoding';
 
 export const getLocation = () => {
     return new Promise(
