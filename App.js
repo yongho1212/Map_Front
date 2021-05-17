@@ -1,9 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import {StatusBar} from 'react-native';
-import DrawerNavigator from './src/Navigation/Drawer';
+//import DrawerNavigator from './src/Navigation/Drawer';
 
-// import Router from './src/Navigation/Router'; 
+import Control from './src/Navigation/Ctrl'; 
 
 
 // import Hosting from './src/Screens/Hosting/index';
@@ -15,7 +15,7 @@ const App: () => React$Node = () => {
     <>
       <StatusBar barStyle="dark-content" />
       
-      <DrawerNavigator />
+      <Control />
      
 
       
