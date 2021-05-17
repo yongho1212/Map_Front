@@ -7,7 +7,7 @@ import HostingBtn from '../Screens/btm3Btn/hostingBtn';
 import SearchingBtn from '../Screens/btm3Btn/searchingBtn';
 import SocialBtn from '../Screens/btm3Btn/socialBtn';
 
-
+// fuck git 
 import DrawerNavigator from './Drawer';
 
 const Stack = createStackNavigator();
