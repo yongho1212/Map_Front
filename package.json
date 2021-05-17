@@ -1,0 +1,50 @@
+{
+  "name": "MapFront",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@react-native-community/datetimepicker": "^3.4.7",
+    "@react-native-community/geolocation": "^2.0.2",
+    "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-google-signin/google-signin": "^6.0.0",
+    "@react-navigation/drawer": "^5.12.5",
+    "@react-navigation/native": "^5.9.4",
+    "@react-navigation/stack": "^5.14.4",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "react": "16.13.1",
+    "react-native": "0.63.4",
+    "react-native-date-picker": "^3.3.0",
+    "react-native-geocoding": "^0.5.0",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-google-places-autocomplete": "^2.2.0",
+    "react-native-maps": "^0.27.1",
+    "react-native-modal-datetime-picker": "^9.2.1",
+    "react-native-reanimated": "file:react-native-reanimated-2.1.0.tgz",
+    "react-native-redash": "^16.0.11",
+    "react-native-safe-area-context": "^3.2.0",
+    "react-native-screens": "^3.1.1",
+    "react-native-scroll-bottom-sheet": "^0.7.0",
+    "reanimated-bottom-sheet": "^1.0.0-alpha.22"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.13.13",
+    "@babel/runtime": "^7.8.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "babel-jest": "^25.1.0",
+    "eslint": "^6.5.1",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
