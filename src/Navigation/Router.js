@@ -8,6 +8,7 @@ import SearchingBtn from '../Screens/btm3Btn/searchingBtn';
 import SocialBtn from '../Screens/btm3Btn/socialBtn';
 
 // fuck git 
+// 형
 import DrawerNavigator from './Drawer';
 
 const Stack = createStackNavigator();
