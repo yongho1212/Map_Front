@@ -14,7 +14,7 @@ import MakeRoomButton from '../../Components/MakeRoomButton';
 
 import Geolocation from '@react-native-community/geolocation';
 
-import {useNavigation} from '@react-navigation/native';
+import {DrawerActions, useNavigation} from '@react-navigation/native';
 
 
 export default class Main extends Component {
@@ -151,13 +151,13 @@ export default class Main extends Component {
                     borderRadius={10}
                     enabledContentTapInteraction={false} //bottom sheet내에서 onPress 활성화
                 /> */}
-               {/* <View style={styles.drawerBtnContainer}>
+                <View style={styles.drawerBtnContainer}>
                     <Pressable
-                    onPress={() => toggleDrawer()}
+                    onPress={() => this.props.navigation.dispatch(DrawerActions.openDrawer())}
                     >
                         <Text>drawer open</Text>
                     </Pressable>
-            </View>*/}
+                </View>
 
                 <View style={styles.btmContainer}>
                     <Pressable 

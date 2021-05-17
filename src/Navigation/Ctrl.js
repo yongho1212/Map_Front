@@ -129,7 +129,7 @@ const Control = () => {
                     name={"Main"}
                     component={drawer}
                     options={{
-                        headerShown: true,
+                        headerShown: false,
                     }}
                 />
 
